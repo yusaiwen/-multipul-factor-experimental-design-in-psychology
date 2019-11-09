@@ -18,7 +18,7 @@
 
 4. 数据表不够直观，改用彩色显示，下图是个例子，$[Y],[AS],[A]$的颜色和取用数据的数据表区域用了统一颜色
 
-![彩色数据表](readme_img\colorful.png)
+![彩色数据表](readme_img/colorful.png)
 
 5. 第二编的软件是SPSS，欲改成R
 
