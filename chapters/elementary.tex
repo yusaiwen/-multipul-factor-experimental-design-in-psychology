@@ -350,7 +350,7 @@ $$
 随机分配被试来保证实验前被试同质
 
 $$
-	F=\frac{MS_effect}{MS_error}
+	F=\frac{MS_{\text{处理效应}}}{MS_{\text{误差效应}}}
 $$
 
 下面应该是一个随机误差，所有处理效应要和误差效应相比，
@@ -398,13 +398,80 @@ $$
 实验设计的评价：内部效度（稳定性、控制无法变异）、外部效度
 
 \section{假设检验的基本思想}
+
+要先说说统计的三大分布，这部分内容在概率中有详细论述，因此我也不打算说的很详细.
+
+1. $\Gamma$函数
+
+$$
+\Gamma \left( x \right) =\int_0^{\infty}{e^{-t}t^{x-1}dt\left( x>0 \right)}
+$$
+
+性质：
+
+\begin{align*}
+    \text{(1) } & \Gamma \left( x+1 \right) =x\Gamma \left( x \right)  \qquad
+    \Gamma \left( 1 \right) =1\Rightarrow \Gamma \left( n+1 \right) =n! \\
+    \text{(2) } & \Gamma \left( \frac{1}{2} \right) =\sqrt{\pi}
+\end{align*}
+
+
+2.$\beta$函数
+$$
+\beta \left( x,y \right) =\int_0^1{t^{x-1}\left( 1-t \right) ^{y-1}dt\left( x>0,y>0 \right)}
+$$
+则有	 
+$$
+\beta \left( x,y \right) =\frac{\Gamma \left( x \right) \Gamma \left( y \right)}{\Gamma \left( x+y \right)}
+$$
+
+1.$\chi ^2$分布(Chi-Square Distribution)
+$$
+\text{设}X_1, X_2,..., X_n\,\,iid,\sim N\left( 0,1 \right) , \text{令}\chi _{n}^{2}=\sum_{i=1}^n{X_{i}^{2}}
+$$
+
+称$\chi _n^2$是自由度为$n$的$chi$方分布，其密度函数为 ：
+$$
+f_n\left( x \right) =\frac{1}{\Gamma \left( \frac{1}{n} \right) 2^{\frac{n}{2}}}\cdot e^{-\frac{x}{2}}\cdot x^{\frac{n-2}{n}}\left( x>0 \right) 
+$$
+
+$chi$方分布有一个重要的性质：设$X_1\,\,,X_2$独立，$X_1\sim \chi _{m}^{2}, X\sim \chi _{n}^{2}$，则$X_1+X_2\sim \chi _{m+n}^{2}$ 
+
+2.$t$分布
+设$X\sim N\left( 0,1 \right) , Y\sim \chi _{n}^{2}$ ，且$X,Y$独立，于是
+
+$$
+t_n=\frac{X}{\sqrt{Y/n}}\left( \frac{N\left( 0,1 \right)}{\sqrt{\chi _{n}^{2}/n}} \right) 
+$$
+
+称t服从自由度为$n$的$t$分布，$t$分布的自由度与其分母的￥方自由度相等，其密度函数为： 
+$$
+f_n\left( t \right) =\frac{\Gamma \left( \frac{n+1}{2} \right)}{\sqrt{n}\pi \Gamma \left( \frac{n}{2} \right)}\left( 1+\frac{t^2}{n} \right) ^{-\frac{n+1}{2}}
+$$
+
+$t$分布图像如所示，可以看到$t$分布与正态分布在一起时，$t$分布的形态好像“尾巴非常重，头变轻”，故$t$分布有也被叫做heavy tail（重尾）.由图像亦可知，$t$分布随着自由度的变大，“头上的鼓包”渐渐缩小，本来“繁重的尾巴”渐渐变轻，越来越朝着标准正态分布的图像靠近.
+
+3.$F$分布
+
+设$X\sim \chi _{m}^{2},Y\sim \chi _{n}^{2}$，且$X$与$Y$独立，令 ，称$F$为服从自由度$m,n$的$F$分布.
+当$m=1$时
+$$
+F_{1,n}=\frac{\chi _{1}^{2}/1}{\chi _{n}^{2}/n}=\left( \frac{N\left( 0,1 \right)}{\sqrt{\chi _{n}^{2}/n}} \right) ^2=t_{n}^{2}
+$$
+故
+$$
+t_{n}^{2}\sim F_{1,n}
+$$
+
 F分布的基本假设
-\begin{itemize}
-	\item 因变量观测值大体服从正态分布，如果数据不可能符合正态分布，就不能用F检验
-	\item 变异的同质性：由随机分配保证，是一个最基本的假设，因为我们根本就不做前测，只做后测
+
+因变量观测值大体服从正态分布，如果数据不可能符合正态分布，就不能用F检验
+ 
+变异的同质性：由随机分配保证，是一个最基本的假设，因为我们根本就不做前测，只做后测
 	加实验处理只是变了组间变异，实验后的组间变异也反应了处理前的组内变异
-	\item 独立性：每一个观测值独立于其它观测值 
-\end{itemize}
+ 
+ 独立性：每一个观测值独立于其它观测值 
+
 
 实验设计模型及其假设：变异的构成
 一次观测就只有一个观察值，但是怎么知道这个观察值有哪些组成的？这个模型就是指导这件事，
@@ -416,6 +483,7 @@ $$
 $$
 SS_{total}=SS_{within\_group}+SS_{between\_group}
 $$
+
 
 
 误差是一个平均数为0的随机变量，不是一个定向的变化
@@ -497,7 +565,6 @@ The possible speed when the two cars
 无关变量掺在F的上面还是下面都不好
 
 方法的描述要细致到别人可以重复的地步
-
 
 
 
