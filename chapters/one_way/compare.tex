@@ -1,0 +1,69 @@
+\section{四种实验设计比较}
+\textbf{1.被试数量}
+
+\begin{table*}[h!]
+    \renewcommand\arraystretch{1.25}
+    \begin{tabular}{lll}
+        \toprule
+        \multicolumn{1}{c}{实验设计}          &    \multicolumn{1}{c}{被试数}        &    \multicolumn{1}{c}{字母说明}\\
+        \midrule
+        单因素完全随机    &    $np$          &     自变量$p$个水平，每个组内均$n$个被试 \\
+        单因素随机区组    &    $np$          &     自变量$p$个水平，$n$个区组\\
+        单因素拉丁方      &    $np^2$  &     无关变量及自变量均$p$个水平，拉丁方格内$n$个被试\\
+        单因素被试内      &    $n$           &     $n$个被试\\
+        \bottomrule
+    \end{tabular}
+\end{table*}
+拉丁方在本章中所用的被试数和其它非重复测量的被试数一样，其原因是它的单元内被试数只有2，而自变量与无关变量水平数相等，都是4，$2\cdot 4^2 = 8 \cdot 4$.可以看到被试内实验设计非常节省被试数.
+
+\textbf{2.平方和分解模式}
+
+平方和的分解是根据实验设计模型而定，这个模型指导着观察分数的来源，不同的分数组成部分由不同的变异源引起，故我们假定它们都相互独立，由此可以推算出下面的平方和分解模式.
+
+可以清楚地看到被试间实验设计在不断寻找处理内变异中的无关变异，而被试内干脆直接把被试个体差异全部带朝走，虽然被试间个体差异确实是个误差，但却不进入计算.
+
+实验设计的核心就是要分离出误差效应，我们期望这部分误差尽可能小，让处理效应更容易显著，从单因素实验设计中我们已经看到不同的实验设计是如何一步一步减小误差的.
+
+
+{    \renewcommand\arraystretch{1.25}
+    \begin{tabular}{rrl}
+    \toprule
+        \multicolumn{1}{c}{\textcolor[rgb]{ .208,  .204,  .161}{实验设计}} & \multicolumn{2}{c}{\textcolor[rgb]{ .208,  .204,  .161}{平方和分解}} \\
+    \midrule
+        \multicolumn{1}{l}{单因素完全随机} & \multicolumn{1}{l}{$SS_{\text{总变异}}$} & $=SS_{\text{处理间}}+SS_{\text{处理内}}$ \\
+              &       & $=SSA+SS_{\text{单元内}}$ \\
+        \multicolumn{1}{l}{单因素随机区组} & \multicolumn{1}{l}{$SS_{\text{总变异}}$} & $=SS_{\text{处理间}}+SS_{\text{处理内}}$ \\
+              &       & $ =SSA + \left(  SS_{\text{区组}} + SS_{\text{区组}} \right) $ \\
+        \multicolumn{1}{l}{单因素拉丁方} & \multicolumn{1}{l}{$SS_{\text{总变异}}$} & $=SS_{\text{处理间}}+SS_{\text{处理内}}$ \\
+              &       & $=SSA+\left(  SSB +SSC +SS_{\text{残差}}+SS_{\text{单元内}} \right)$  \\
+        \multicolumn{1}{l}{单因素被试内} & \multicolumn{1}{l}{$SS_{\text{总变异}}$} & $=SS_{\text{被试间}}+SS_{\text{被试内}}$ \\
+              &       & $=SS_{\text{被试间}}+\left(  SSA + SS_{\text{残差}}  \right)$ \\
+    \bottomrule
+    \end{tabular}}
+    
+\textbf{3.误差项自由度}
+
+{
+    \renewcommand\arraystretch{1.25}
+    \begin{tabular}{ll}
+        \toprule
+        \multicolumn{1}{c}{实验设计}          &    \multicolumn{1}{c}{误差项自由度}\\
+        \midrule
+        单因素完全随机    &    $(n-1)p$\\
+        单因素随机区组    &    $(n-1)(p-1)$\\
+        单因素拉丁方      &    $(n-1)(p-2)$\\
+        单因素被试内      &    $(n-1)(p-1)$\\
+        \bottomrule
+    \end{tabular}    
+}
+
+这么看来完全随机实验设计也不是一定就不好，至少它的误差自由度很大，$F$临界值会更小一些，而其它的设计虽然使$F$值变大，不过其临界值也增大了.所以$F$值变大并不一定意味着处理效应更容易显著，毕竟误差自由度也变化了，要综合考虑.
+
+本章开头我给出的一个练习中我们直观在数据中计算了$MSA$和$MSE$变化的情况，加上单因素实验设计的四种实验设计我们得到了更多对于数据的认识.现在我们简要总结一下减小$SSE$的方式
+
+\begin{description}
+\item[1.选取更加同质的被试] 还是以测量学生在新旧教学方法条件下语文成绩为例，如果我真的从全部人类的部体中随机抽样，结果我抽样出一个7岁的小学生和一个20岁的大学生，这样结果就没法比了.因此在取样中我们通常是带有目的选取尽可能同质的被试，尽管对我们把结论推论到总体有一定的影响.
+\item [2.带走无关变异] 随机区组、拉丁方、重复测量正用此方法
+\end{description}
+
+我们介绍完了单因素实验设计.从两因素开始因为有了多个因素，交互作用出现了，我们将获得更多信息；混合实验设计也出现了.上述两者是多因素实验设计的核心.

@@ -2,6 +2,145 @@
 \chapter{两因素被试间实验设计}
 \labch{options}
 
-\[
-Y_{ijk} = \mu + \alpha _j + \beta _k + \varepsilon _{i\left( jk \right)}
-\]
+%------------------------------------两因素完全随机实验设计
+%\input{chapters/two_between/random.tex}
+%------------------------------------两因素交互作用的探讨
+%\input{chapters/two_between/cross.tex}
+
+\section{两因素交互作用的进一步探讨}
+
+\subsection{交互作用含义}
+
+前面我用教学方法和智力的例子大体说明了这个问题，教学方法对阅读成绩的成绩不仅与其本身是新教学方法还是旧教学方法有关，也受到学生智力的影响.换句话说，高智力学生可以接受到新教学方法的好处，相反低智力学生不仅不能体会其好处，而且可能因为他们不适应新的教学方法导致成绩不增反降.因此我们得到交互作用的定义：
+
+\begin{definition}[交互作用]
+\labdef{cross_effect}
+    指的是一个因素的的效应在一个或多个因素不同的水平上不同.
+\end{definition}
+
+\vreffig{two_cross}展示了两因素交互作用可能存在8种情况，我将单因素时得到的结果用蓝色线段加粗标出来，可以看到，$A$因素主效应不显著会对应(1)~(4)四种情况，而只有(1)和(2)是真的可以说明因素$A$对因变量没有影响；(3)和(4)这种情况下，$A$因素的效应在$B$因素的两个水平下是相反的，而且总体上恰好抵消了，显得好像$A$因素对因变量没有效应似的，在多因素解释效应时要小心.
+
+在交互作用显著的(3)(4)(7)(8)中，(3)(4)(7)表示的交互作用中两条线段交叉，表明$A$的效应在不同$B$的水平上相反，称为\textbf{非同序交互作用(disordinal interaction)}
+\marginnote{\textbf{非同序交互作用(disordinal interaction}指的是在因素$B$不同组上，因素$A$的效应方向相反}.
+(8)表示的交互作用中，$B$不同组中$A$的效应还是一个方向的，称之为\textbf{同序交互作用(ordinal interaction)}.
+\marginnote[*2]{\textbf{同序交互作用(ordinal interaction)}指的是在因素$B$不同组上，因素$A$的效应方向相同}
+
+\begin{figure*}
+    \includegraphics{cross}
+    \caption{两因素交互作用可能的8种情况，中间蓝色的加粗线为$A$因素的简单主效应，可以看到只考虑一种因素会掩盖很多信息。(1)和(5)中三条线本是重合的，但是为了可以看得清楚故将其稍微拉开了一点，(8)中绿色的虚线和实线表示$b_1$这两种状况都属于这种情况}
+    \labfig{two_cross}
+\end{figure*}
+
+\subsection{交互作用图解}
+当方差分析表明两个因素的交互作用是显著的时候，研究者常常需要进一步了解交互作用的含义是什么.一种简单的方法是画出交互作用的图解，以观察一个因素的各水平在另一个因素的每个水平上的变化.作图解时，应首先计算出每个处理水平结命中所得到的平均数，然后以平均数作图.我们仍举上面两因素完全随机设计的例子，列出它的$AB$表(\reftab{two_random_AB_2}和\reftab{two_random_AB_avg})
+
+\begin{margintable}
+  \centering
+  \caption{两因素完全随机设计$ABS$表}
+  \labtab{two_random_AB_2}
+    \begin{tabular}{ccc}
+    \toprule
+          & $a_1$ & $a_2$ \\
+    \midrule
+          & $n=4$ &  \\
+    $b_1$ & 16    & 15 \\
+    $b_2$ & 16    & 32 \\
+    $b_3$ & 19    & 48 \\
+    \bottomrule
+    \end{tabular}%
+\end{margintable}
+
+\begin{margintable}
+  \centering
+  \caption{两因素完全随机设计$AB$平均数表}
+  \labtab{two_random_AB_avg}
+    \begin{tabular}{ccc}
+        \toprule
+              & $a_1$ & $a_2$ \\
+        \midrule
+        $b_1$ & 4     & 3.75 \\
+        $b_2$ & 4     & 8 \\
+        $b_3$ & 4.75  & 12 \\
+        \bottomrule
+    \end{tabular}
+\end{margintable}
+
+根据$AB$平均数表，可双两个方向作用(\reffig{AB_cross_two_directions})
+
+\begin{figure}
+    \includegraphics{cross_effect_two_directions}
+    \caption{$AB$交互作用两个方向的图}
+    \labfig{AB_cross_two_directions}
+\end{figure}
+
+
+
+对两个图的解释是不一样的，\reffig{AB_cross_two_directions}(a)表明，$B$因素在$A$因素的两个水平上影响趋势是不一致的.$B$因素的三个水平在$a_1$水平似乎没有明显差别，而在$a_2$水平有较大差异.
+\reffig{AB_cross_two_directions}(b)表明，$A$因素在$B$因素的三个水平上的影响趋势也不一致.$A$因素的两个水平在$b_1$水平没有明显差异，而在$b_2,b_3$水平存在较大差异.
+
+图解法的优点是简单、直观.直接利用各处理水平结合所得的平均观测值作图，可以使读者对结果模式有一个非常直观的了解.它的弱点是，解释是主观的，有时不同的研究者可能会对同一结果作出不同的解释，尤其是当出现复杂的交互作用时，研究者单靠经验、直观进行解释是很困难的.因此，图解一般只能作为检查交互作用的第一步，它需要同统计检验结合起来，以便进一步用数据对交互作用的意义作出更精确可靠的解释.
+
+\subsection{简单效应检验}
+\subsubsection{基本特点}
+
+检查交互作用含义的另一个方法是简单效应检验，简单效应检验与主效应检验不大相同.主效应检验是在忽略其它因素的情况下检验一个因素的处理效应，我们比较一下主效应和简单效应的不同之处.
+
+设观测值为$Y_{ijk}$，$i$是处理组合内的第$i$个被试，$j$是因素$A$的的水平$j$，$k$是因素$B$的水平$k$
+
+1. $A$因素和$B$因素的\textbf{主效应}用组内平均数与真值的差估计，组内平均数忽略了被试和其它因素，可表示为
+\[ \begin{array}{cc}
+    \alpha _1 = \mu _{.1.} - \mu    &    \beta _1 = \mu _{..1} - \mu\\ 
+    \alpha _2 = \mu _{.2.} - \mu    &    \beta _2 = \mu _{..2} - \mu\\
+    \vdots                          &     \vdots \\
+    \alpha _j = \mu _{.j.} - \mu    &    \beta _k = \mu _{..k} - \mu\\
+    
+    \alpha _p = \mu _{.p.} - \mu    &    \beta _q = \mu _{..q} - \mu
+\end{array}\]
+
+可检验的假说是：
+
+(1)$A$因素处理水平上的总体平均数相等，即：
+\[H_0 : \mu _{.1.} = \mu _{.2.} = \cdots = \mu _{.p.}\]
+
+或$A$因素处理效应为0，即：
+\[ \alpha _j = 0 \]
+
+(2)$B$因素处理水平上的总体平均数相等，即：
+\[ H_0 : \mu _{..1} = \mu _{..2} = \cdots = \mu _{..q} \]
+
+或$B$因素处理效应为0，即：
+\[ \beta _k =0 \]
+
+2.\textbf{简单效应}
+
+%这段话没写好
+
+本例中，对于因素$A$，我们分别计算它的效应在$b_1,b_2,b_3$上的变异，
+\reffig{AB_cross_two_directions}(b)上三条线段因为斜率不一样所以我们怀疑可能存在交互作用，而上述拆分的三个变异的显著性正好反应这条线在统计上是显著的平还是显著的斜
+如果$A$在$b1$上的变异不显著，而在$b_2,b_3$上的变异显著，则说明确实存在交互作用.
+
+所以说简单效应的计算也就是将一个因素对因变量的效应拆分成多组，有另一个因素有多少水平就拆分成多少个组，我们检验它在另一个因素不同水平上的显著性.
+
+\[\begin{array}{cc}
+    \alpha _{1\left( \text{在}b_1\text{水平上} \right)} = \mu _{.11} - \mu _{..1} & \beta _{1\left( \text{在}a_1\text{水平上} \right)} = \mu _{.11} - \mu _{.1.}\\
+    \alpha _{2\left( \text{在}b_1\text{水平上} \right)} = \mu _{.21} - \mu _{..1}& \beta _{2\left( \text{在}a_1\text{水平上} \right)} = \mu _{.12} - \mu _{.2.}\\
+    \vdots                                              & \vdots\\
+    \alpha _{j\left( \text{在}b_1\text{水平上} \right)} = \mu _{.j1} - \mu _{..1}&\beta _{k\left( \text{在}a_1\text{水平上} \right)}= \mu _{.1k} - \mu _{.1.}\\
+    \vdots                                              & \vdots\\
+    \alpha _{j\left( \text{在}b_k\text{水平上} \right)} = \mu _{.jk} - \mu _{..k}& \beta _{k\left( \text{在}a_j\text{水平上} \right)}= \mu _{.jk} - \mu _{j.}\\
+    \vdots                                              & \vdots\\
+    \alpha _{p\left( \text{在}b_q\text{水平上} \right)} = \mu _{.pq} - \mu _{..q}& \beta _{q\left( \text{在}a_p\text{水平上} \right)}= \mu _{.pq} - \mu _{.p.}
+\end{array}\]
+
+
+
+
+\subsubsection{计算举例}
+
+
+\subsubsection{使用}
+%------------------------------------两因素随机区组实验设计
+\input{chapters/two_between/block.tex}
+
+
+
