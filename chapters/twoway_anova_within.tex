@@ -1,3 +1,373 @@
 \setchapterpreamble[u]{\margintoc}
 \chapter{两因素重复测量实验设计}
 \labch{options}
+
+
+\subsection{基本特点}
+
+\begin{margintable}
+  \centering
+  \caption{Add caption}
+    \begin{math}    
+        \begin{array}{cccc}
+        \toprule
+               & b_1 & b_2 & b_3\\
+        \midrule
+        \multirow{4}[0]{*}{$a_1$} & S_1    & S_1    & S_1 \\
+               & S_2    & S_2    & S_2 \\
+               & S_3    & S_3    & S_3 \\
+               & S_4    & S_4    & S_4 \\
+        \midrule
+        \multirow{4}[0]{*}{$a_2$} & S_5    & S_5    & S_5 \\
+               & S_6    & S_6    & S_6 \\
+               & S_7    & S_7    & S_7 \\
+               & S_8    & S_8    & S_8 \\
+        \bottomrule
+        \end{array}
+    \end{math}
+  \label{tab:addlabel}
+\end{margintable}
+
+\subsubsection{两因素混合实验设计模型}
+
+\begin{definition}[两因素混合实验设计模型]
+\labdef{two_way_mixed_model}
+
+\begin{align*}
+    Y_{ijk} = \mu + \alpha _j + \pi _{i \left( j \right)} + \beta _k + \left( \alpha \beta \right) _{jk} +  \left( \beta \pi \right) _{ki \left( j \right)} + \varepsilon _{ijk}\\
+    \left( j=1,2,\cdots ,p; k=1,2,\cdots,q; i=1,2,\cdots,n \right)
+\end{align*}
+
+其中
+
+\begin{tabular}{lcl}
+    $\mu$                                              & - & 总体平均数，或真值\\
+    $\alpha _j$                                        & - & $A$因素的水平$j$的处理效应\\
+    $\pi _{i \left( j \right)}$                        & - & 嵌套在$\alpha _j$水平内的被试$i$的效应\\
+    $\beta _k$                                         & - & $B$因素的水平$k$的处理效应\\
+    $\left( \alpha \beta \right) _{jk}$                & - & 水平$\alpha _j$和水平$\beta _k$的交互作用\\
+    $\left( \beta \pi \right) _{ki \left( j \right) }$ & - & 嵌套在$\beta _k$水平和被试$i$的交互作用的残差\\
+    $\varepsilon _{ijk}$                               & - & 误差\\
+\end{tabular}
+
+\end{definition}
+
+\subsubsection{两因素混合实验设计检验的假说}
+
+\subsection{实验设计与计算举例}
+\subsubsection{研究的问题}
+
+\textbf{1.计算表}
+
+\textbf{2.各种基本量的计算}
+
+\textbf{3.平方和分解与计算}
+\begin{definition}[两因素混合实验设计平方和分解]
+\labdef{two_way_mixed_variance}
+\begin{alignat*}{3}
+    &  SS_{\text{总变异}}    &&=    SS_{\text{被试间}} &&+    SS_{\text{被试内}} \\
+    &                       &&=    \left( SSA + SS_{\text{被试} \left( A \right) } \right)  &&+    \left( SSB + SSAB + SS_{B\times \text{被试} \left( A \right) } \right)
+\end{alignat*}
+\end{definition}
+
+\begin{alignat*}{4}
+    &  SS_{\text{总变异}}    &&=    [ABS] - [Y]    &&=    251.833\\
+    &  SS_{\text{被试间}}    &&=    [AS]  - [Y]    &&=    111.166\\
+    &  SSA                   &&=    [A]   - [Y]   &&=    80.667\\
+    &  SS_{\text{被试}\left( A \right)}    &&=    SS_{\text{被试间}} - SSA     &&= 30.500\\
+    &  SS_{\text{被试内}}    &&=    SS_{\text{总变异}} - SS_{\text{被试间}}    &&= 140.667\\
+    &  SSB                   &&=    [B] - [Y]     &&=    81.083\\
+    &  SSAB                  &&=    [AB]- [Y] -SSA -SSB     &&=56.584\\
+    &  SS_{B \times \text{被试} \left( A \right)}    &&=    SS_{\text{被试内}} - SSB - SSAB    &&=    3.000
+\end{alignat*}
+
+\textbf{4.方差分析表及结果的解释}
+
+\begin{table*}
+	\centering
+	\caption{两因素混合实验设计方差分析表}
+	\label{two_way_mixed_ANOVA_tab}
+	{
+                    \begin{tabular}{lrrrrrr}
+		    \toprule
+			\multicolumn{1}{c}{变异源} & \multicolumn{1}{c}{$SS$} & \multicolumn{1}{c}{$df$} & \multicolumn{1}{c}{$MS$} & \multicolumn{1}{c}{$F$} & \multicolumn{1}{c}{$p$} \\
+		    \midrule
+		    	$A$(主题熟悉性) & 80.667 & $p-1=1$ & 80.667 & 15.869 & 0.007  \\
+			被试间($A$) & 30.500 & $p(n-1)=6$ & 5.083 &  &    \\
+		    \midrule
+			$B$(生字密度) & 81.083 & $q-1=2$ & 40.542 & 162.167 & $<$ .001  \\
+			$AB$ & 56.583 & $(p-1)(q-1)=2$ & 28.292 & 113.167 & $<$ .001  \\
+			$B\times$被试$(A)$ & 3.000 & $p(n-1)(q-1)=12$ & 0.250 &  &    \\
+		    \bottomrule
+		\end{tabular}
+	}
+\end{table*}
+
+\textbf{5.平方和与自由度分解图}
+
+\subsection{一些解释}
+\textbf{1.各种平方和的意义}
+
+
+\textbf{2.$SS_{\text{被试}\left( A \right)}$的实质}
+
+忽略$B$因素，将其各个水平的值求和，得到\reftab{two_way_omit_B_AS_tab}的计算表，观察这个表的被试分配到处理的模式可以看到，因素$A$的两个水平下，$a_1$水平下有4个被试，每个被度仅接受一种处理；$a_1$水平下有4个被试，每个被度仅接受一种处理.这样就好像是一个单因素完全随机设计.接下来我们计算这个完全随机设计的单元内误差，注意算的时候要忘记$B$当成完全随机，但是被试数要带上$B$因素的被试数，否则平方和会拉大.
+
+(1)基本量的计算
+
+\begin{margintable}
+  \centering
+  \caption{忽略$B$因素(被试内变量)的$AS$表}
+    \[\begin{array}{crr}
+        \toprule
+              & \multicolumn{1}{c}{a_1}   & \multicolumn{1}{c}{a_2} \\
+        \midrule
+              & \multicolumn{1}{l}{n=3} &  \\
+              & S_1=12 & S_5=24 \\
+              & S_2=19 & S_6=27 \\
+              & S_3=13 & S_7=23 \\
+              & S_4=7 & S_8=21 \\
+        \midrule
+            \sum  & \multicolumn{1}{c}{51}    & \multicolumn{1}{c}{95} \\
+        \bottomrule
+    \end{array}\]
+  \labtab{two_way_omit_B_AS_tab}
+\end{margintable}
+
+\begin{alignat*}{3}
+    &\left[ Y \right]  &&=  \frac{\left( 146 \right) ^2}{24}                                         &&=888.167\\
+    &\left[ AS \right] &&=  \frac{\left( 12 \right) ^2}{3}+\frac{\left( 19 \right) ^2}{3}+\cdots     &&=999.333\\
+    &\left[ A \right]  && = \frac{\left( 51 \right) ^2}{12}+\frac{\left( 95 \right) ^2}{12}          &&=968.833
+\end{alignat*}
+
+(2)平方和的计算
+\begin{alignat*}{3}
+    & SS_{\text{总变异}} &&=     [AS] - [Y]                             &&= 111.166\\
+    & SS_{\text{组间}}   &&=     [A] - [Y]                              &&= 80.667\\
+    & SS_{\text{组内}}   &&=     SS_{\text{总变异}} - SS_{\text{组间}}  &&= 30.500
+\end{alignat*}
+
+所以在混合因素设计中的
+\[ F=\frac{MSA}{MS_{\text{被试}\left( A \right)}}=\frac{SSA/\left( p-1 \right)}{SS_{\text{被试}\left( A \right)}/\left( n-1 \right) p} \]
+
+类似于完全随机设计中的
+
+\[ F=\frac{MS_{\text{组间}}}{MS_{\text{组内}}}=\frac{SS_{\text{组间}}/\left( p-1 \right)}{SS_{\text{组内}}/p\left( n-1 \right)} \]
+
+上面$SS_{\text{组内}}$是用相减法算得，因其实质是单元内误差，也可以直接计算，其算法我们也已知晓，即每个处理内的被试间的变异.
+
+\begin{alignat*}{3}
+    &    SS_{\text{1组}}    &&=    \frac{\left( 12 \right) ^2}{3}+\frac{\left( 19 \right) ^2}{3}+\frac{\left( 13 \right) ^2}{3}+\frac{\left( 7 \right) ^2}{3}-\frac{\left( 51 \right) ^2}{12}    &&=    24.25\\
+    &    SS_{\text{2组}}    &&=    \frac{\left( 24 \right) ^2}{3}+\frac{\left( 27 \right) ^2}{3}+\frac{\left( 23 \right) ^2}{3}+\frac{\left( 21 \right) ^2}{3}-\frac{\left( 95 \right) ^2}{12}    &&=    6.25\\
+    &    SS_{\text{组内}}    &&=24.25+6.25                                    &&=    30.5
+\end{alignat*}
+
+\textbf{3.$SS_{B\times \text{被试}\left( A \right)}$的实质}
+
+
+
+\begin{margintable}
+  \centering
+  \caption{在$a_1$水平的$BS$表}
+    \begin{tabular}{ccccc}
+          & $b_1$ & $b_2$ & $b_3$ & $\sum$ \\
+    $S_1$ & \cellcolor[rgb]{ .886,  .937,  .855}3 & \cellcolor[rgb]{ .886,  .937,  .855}4 & \cellcolor[rgb]{ .886,  .937,  .855}5 & \cellcolor[rgb]{ 1,  .949,  .8}12 \\
+    $S_2$ & \cellcolor[rgb]{ .886,  .937,  .855}6 & \cellcolor[rgb]{ .886,  .937,  .855}6 & \cellcolor[rgb]{ .886,  .937,  .855}7 & \cellcolor[rgb]{ 1,  .949,  .8}19 \\
+    $S_3$ & \cellcolor[rgb]{ .886,  .937,  .855}4 & \cellcolor[rgb]{ .886,  .937,  .855}4 & \cellcolor[rgb]{ .886,  .937,  .855}5 & \cellcolor[rgb]{ 1,  .949,  .8}13 \\
+    $S_4$ & \cellcolor[rgb]{ .886,  .937,  .855}3 & \cellcolor[rgb]{ .886,  .937,  .855}2 & \cellcolor[rgb]{ .886,  .937,  .855}2 & \cellcolor[rgb]{ 1,  .949,  .8}7 \\
+    $\sum$ & \cellcolor[rgb]{ .929,  .929,  .929}16 & \cellcolor[rgb]{ .929,  .929,  .929}16 & \cellcolor[rgb]{ .929,  .929,  .929}19 & \cellcolor[rgb]{ .867,  .922,  .969}51 \\
+    \end{tabular}%
+  \labtab{two_way_mixed_a1}
+\end{margintable}
+
+
+
+\begin{alignat*}{3}
+    &    \colorbox[rgb]{ .867,  .922,  .969}{$[Y_1]$}
+    &&   =\frac{\left( 51 \right) ^2}{12}
+    &&   =216.75\\
+    &    \colorbox[rgb]{ .886,  .937,  .855}{$[B_1S_1]$}
+    &&   = \left( 3 \right) ^2+\left( 4 \right) ^2+\cdots 
+    &&   =245.000\\
+    &    \colorbox[rgb]{ 1,  .949,  .8}{$[S_1]$}
+    &&   =\frac{\left( 12 \right) ^2}{3}+\frac{\left( 19 \right) ^2}{3}+\frac{\left( 13 \right) ^2}{3}+\frac{\left( 7 \right) ^2}{3}
+    &&   =241\\
+    &    \colorbox[rgb]{ .929,  .929,  .929}{$[B_1]$}
+    &&   = \frac{\left( 16 \right) ^2}{4}+\frac{\left( 16 \right) ^2}{4}+\frac{\left( 19 \right) ^2}{4}
+    &&   = 218.25
+\end{alignat*}
+
+
+
+
+\begin{alignat*}{3}
+    &    \colorbox[rgb]{ .867,  .922,  .969}{$[Y_2]$}
+    &&   =\frac{\left( 95 \right) ^2}{12}
+    &&   =752.803\\
+    &    \colorbox[rgb]{ .886,  .937,  .855}{$[B_2S_2]$}
+    &&   = \left( 4 \right) ^2+\left( 8 \right) ^2+\cdots 
+    &&   =888.250\\
+    &    \colorbox[rgb]{ 1,  .949,  .8}{$[S_2]$}
+    &&   =\frac{\left( 24 \right) ^2}{3}+\frac{\left( 27 \right) ^2}{3}+\frac{\left( 23 \right) ^2}{3}+\frac{\left( 21 \right) ^2}{3}
+    &&   =758.333\\
+    &    \colorbox[rgb]{ .929,  .929,  .929}{$[B_2]$}
+    &&   = \frac{\left( 15 \right) ^2}{4}+\frac{\left( 32 \right) ^2}{4}+\frac{\left( 48 \right) ^2}{4}
+    &&   = 888.25
+\end{alignat*}
+
+\begin{alignat*}{3}
+    & SS_{总_1}
+    &&=\left[ B_1S_1 \right] -\left[ Y_1 \right] 
+    &&=28.25\\
+    & SSB_1
+    &&=\left[ B_1 \right] -\left[ Y_1 \right] 
+    &&=1.5\\
+    & SS_{\text{被试}_1}
+    &&=\left[ S_1 \right] -\left[ Y_1 \right] 
+    &&=24.25\\
+    & SS\left( B_1S_1 \right) 
+    &&=\left[ B_1S_1 \right] -\left[ Y_1 \right] -SSB_1-SS_{\text{被试}_1}
+    &&=2.5 
+\end{alignat*}
+\begin{alignat*}{3}
+    & SS_{总_2}
+    &&=\left[ B_2S_2 \right] -\left[ Y_2 \right] 
+    &&=142.917\\
+    & SSB_2
+    &&=\left[ B_2 \right] -\left[ Y_2 \right] 
+    &&=136.167\\
+    & SS_{\text{被试}_2}
+    &&=\left[ S_2 \right] -\left[ Y_2 \right] 
+    &&=6.25\\
+    & SS\left( B_2S_2 \right) 
+    &&=\left[ B_2S_2 \right] -\left[ Y_2 \right] -SSB_2-SS_{\text{被试}_2}
+    &&=0.5
+\end{alignat*}
+
+然后合并两个残差
+
+\begin{align*}
+    MS_{\text{残差} \left( pooled\right) } &= \frac{SSB_1S_1+SSB_2S_2}{(n-1)(q-1)+(n-1)(q-1)}\\
+                                           &= \frac{2.5+0.5}{12}\\
+                                           &= 0.25
+\end{align*}
+
+\begin{margintable}
+  \centering
+  \caption{在$a_2$水平的$BS$表}
+    \begin{tabular}{ccccc}
+          & $b_1$ & $b_2$ & $b_3$ & $\sum$ \\
+    $S_5$ & \cellcolor[rgb]{ .886,  .937,  .855}4 & \cellcolor[rgb]{ .886,  .937,  .855}8 & \cellcolor[rgb]{ .886,  .937,  .855}12 & \cellcolor[rgb]{ 1,  .949,  .8}24 \\
+    $S_6$ & \cellcolor[rgb]{ .886,  .937,  .855}5 & \cellcolor[rgb]{ .886,  .937,  .855}9 & \cellcolor[rgb]{ .886,  .937,  .855}13 & \cellcolor[rgb]{ 1,  .949,  .8}27 \\
+    $S_7$ & \cellcolor[rgb]{ .886,  .937,  .855}3 & \cellcolor[rgb]{ .886,  .937,  .855}8 & \cellcolor[rgb]{ .886,  .937,  .855}12 & \cellcolor[rgb]{ 1,  .949,  .8}23 \\
+    $S_8$ & \cellcolor[rgb]{ .886,  .937,  .855}3 & \cellcolor[rgb]{ .886,  .937,  .855}7 & \cellcolor[rgb]{ .886,  .937,  .855}11 & \cellcolor[rgb]{ 1,  .949,  .8}21 \\
+    $\sum$ & \cellcolor[rgb]{ .929,  .929,  .929}15 & \cellcolor[rgb]{ .929,  .929,  .929}32 & \cellcolor[rgb]{ .929,  .929,  .929}48 & \cellcolor[rgb]{ .867,  .922,  .969}95 \\
+    \end{tabular}
+  \labtab{two_way_mixed_a2}
+\end{margintable}
+
+\subsection{基本特点}
+
+\begin{margintable}
+  \centering
+  \caption{Add caption}
+    $\begin{array}{cccccc}
+    \toprule
+        a_1    & a_1    & a_1    & a_2    & a_2    & a_2 \\
+        b_1    & b_2    & b_3    & b_1    & b_2    & b_3 \\
+    \midrule
+        S_1    & S_1    & S_1    & S_1    & S_1    & S_1 \\
+        S_2    & S_2    & S_2    & S_2    & S_2    & S_2 \\
+        S_3    & S_3    & S_3    & S_3    & S_3    & S_3 \\
+        S_4    & S_4    & S_4    & S_4    & S_4    & S_4 \\
+    \bottomrule
+    \end{array}$
+  \label{tab:addlabel}%
+\end{margintable}%
+
+\subsubsection{两因素被试内实验设计模型}
+
+\begin{definition}[两因素被试内实验设计模型]
+\labdef{two_way_within_model}
+
+\begin{align*}
+ Y_{ijk}=\mu +\alpha _j+\left( \alpha \pi \right) _{ji}+\beta _k+\left( \beta \pi \right) _{ki}+\left( \alpha \beta \right) _{jk}+\left( \alpha \beta \pi \right) _{jki}+\varepsilon _{ijk}\\
+\left( j=1,2,\cdots ,p;k=1,2,\cdots ,q;i=1,2,\cdots ,n \right) 
+\end{align*}
+
+其中
+
+\begin{tabular}{lcl}
+    $\mu$                                        & - &    总体平均数或真值\\
+    $\pi _i$                                     & - &    由被试$i$引起的变异，被试间变异\\
+    $\alpha _j$                                  & - &    $A$因素的水平$j$引起的处理效应\\
+    $\left( \alpha \pi \right) _{ji}$            & - &    水平$\alpha _j$和被试$i$的交互作用\\
+    $\beta _k$                                   & - &    $B$因素的水平$k$引起的处理效应\\
+    $\left( \beta \pi \right) _{ki}$             & - &    水平$\beta _k$和被试$i$的交互作用\\
+    $\left( \alpha \beta \right) _{jk}$          & - &    水平$\alpha _j$和水平$\beta _k$的交互作用\\
+    $\left( \alpha \beta \pi \right) _{jki}$     & - &    水平$\alpha _j, \beta _k$和被试$i$的交互作用\\
+\end{tabular}
+
+\end{definition}
+
+\subsubsection{两因素被试内实验设计检验的假说}
+
+\subsection{实验设计与计算举例}
+\subsubsection{研究的问题}
+
+\textbf{1.计算表}
+
+\textbf{2.各种基本量的计算}
+
+\textbf{3.平方和分解与计算}
+\begin{definition}[两因素被试内实验设计平方和分解]
+\labdef{two_way_within_variance}
+\begin{alignat*}{3}
+    &  SS_{\text{总变异}} &&= SS_{\text{被试间}} &&+ SS_{\text{被试内}}\\ 
+    &                     &&= SS_{\text{被试间}} &&+ \left( SSA+SS_{A\times \text{被试}}+SSB+SS_{B\times \text{被试}}+SSAB+SS_{A\times B\times \text{被试}} \right) 
+\end{alignat*}
+\end{definition}
+
+\begin{alignat*}{3}
+    &  SS_{\text{总变异}}                               &&=    [ABS] - [Y] &&= 251.833                                                                                    \\
+    &  SS_{\text{被试间}}                               &&=    [S]-[Y]     &&= 27.167                                                                                     \\
+    &  SS_{\text{被试内}}                               &&=    SS_{\text{总变异}} - SS_{\text{被试间}} &&= 224.667                                                         \\
+    &  SSA                                              &&=    [A] - [Y] &&= 80.667                                                                                       \\
+    &  SS_{A \times \left( \text{被试} \right)}         &&=    [AS] - [Y] - SSA - SS_{\text{被试间}} &&= 3.333                                                             \\
+    &  SSB                                              &&=    [B]  - [Y] &&= 81.083                                                                                      \\
+    &  SS_{B \times \left( \text{被试} \right)}         &&=    [BS] - [Y] - SSB - SS_{\text{被试间}} &&= 1.583                                                             \\
+    &  SSAB                                             &&=    [AB] - [Y] - SSA - SSB &&= 56.583                                                                          \\
+    &  SS_{A \times B \times \text{被试}}               &&=    SS_{\text{被试内}} - SSA - SS_{A \times \text{被试}} - SSB - SS_{B\times \text{被试}} - SSAB &&= 1.417 
+\end{alignat*}
+
+\textbf{4.方差分析表及结果的解释}
+\begin{table*}
+	\centering
+	\caption{两因素被试内实验设计方差分析表}
+	\labtab{two_way_ANOVA_tab}
+	{
+                    \begin{tabular}{lrrrrrr}
+		    \toprule
+			\multicolumn{1}{c}{变异源} & \multicolumn{1}{c}{$SS$} & \multicolumn{1}{c}{$df$} & \multicolumn{1}{c}{$MS$} & \multicolumn{1}{c}{$F$} & \multicolumn{1}{c}{$p$} \\
+		     \midrule
+			被试间                 & 27.167    & $n-1=3$     &     &  &    \\
+		      \midrule
+			$A$(主题熟悉性)        & 80.667    & $p-1=1$     & 80.667  & 72.600 & 0.003  \\
+			$A\times$被试          & 3.333     & $(p-1)(n-1)=3$     & 1.111   &  &    \\
+			$B$                    & 81.083    & $q-1=2$     & 40.542 & 153.632 & $<$ .001  \\
+			$B\times$被试          & 1.583     & $(n-1)(q-1)=6$     & 0.264   &  &    \\
+			$A \times B$           & 56.583    & $(p-1)(q-1)=2$     & 28.292  & 119.824 & $<$ .001  \\
+			$A\times B \times$被试 & 1.417     & $(n-1)(p-1)(q-1)=6$     & 0.236   &  &    \\
+		      \bottomrule
+		\end{tabular}
+	}
+\end{table*}
+
+
+\textbf{5.平方和与自由度分解图}
+
+\subsection{一些解释}
+\textbf{1.各种平方和的意义}
+
+
+

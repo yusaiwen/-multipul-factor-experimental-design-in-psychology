@@ -137,10 +137,51 @@
 
 \subsubsection{计算举例}
 
+\begin{table}[htbp]
+	\centering
+	\caption{两因素完全随机方差分析与两个方向简单效应检验}
+	\labtab{two_random_simple_mail_effect}
+	{
+                    \begin{tabular}{lrrrrrr}
+		    \toprule
+			\multicolumn{1}{c}{变异源} & \multicolumn{1}{c}{$SS$} & \multicolumn{1}{c}{$df$} & \multicolumn{1}{c}{$MS$} & \multicolumn{1}{c}{$F$} & \multicolumn{1}{c}{$p$} \\
+			\midrule
+			$A$ & 80.667 & $p-1=1$ & 80.667 & 43.343 & $<$ .001  \\
+			$B$ & 81.083 & $q-1=2$ & 40.542 & 21.784 & $<$ .001  \\
+			$A\times B$ & 56.583 & $(p-1)(q-1)=2$ & 28.292 & 15.201 & $<$ .001  \\
+		    \midrule
+			$A_{\left( \text{在}b_1\text{水平} \right)}$ & 0.125 & $p-1=1$ & 0.125 & 0.067 & 0.798  \\
+			$A_{\left( \text{在}b_2\text{水平} \right)}$ & 32.000 & $p-1=1$ & 32.000 & 17.194 & $<$ .001  \\
+			$A_{\left( \text{在}b_3\text{水平} \right)}$ & 105.125 & $p-1=1$ & 105.125 & 56.485 & $<$ .001  \\
+		    \midrule
+			$B_{\left( \text{在}a_1\text{水平} \right)}$ & 1.500 & $q-1=2$ & 0.750 & 0.403 & 0.674  \\
+			$B_{\left( \text{在}a_2\text{水平} \right)}$ & 136.167 & $q-1=2$ & 68.083 & 36.582 & $<$ .001  \\
+		    \midrule
+		        单元内误差 & 33.500 & $pq(n-1)=18$ & 1.861\\
+		    \bottomrule
+		\end{tabular}
+	}
+\end{table}
 
 \subsubsection{使用}
 %------------------------------------两因素随机区组实验设计
 \input{chapters/two_between/block.tex}
 
 
-
+\begin{tikzpicture}[node distance=30mm,
+  every node/.style = {shape=rectangle, 
+    draw, align=center,}]]
+  \node {$SS_{\text{总变异}}$\\$df=npq-1$}
+    child{ node {$SS_{\text{处理间}}$\\$df=pq-1$} 
+            child { node{$SSA$\\$df=p-1$}}
+            child {node{$SSB$\\$df=q-1$}}
+            child {node{$SSAB$\\$df=(p-1)(q-1)$}}        
+    }  
+    child 
+    { 
+        node{$SS_{\text{处理内}}$ \\ $df=pq(n-1)$}
+        child{
+            node{$SS_{\text{单元内}}$\\$df=pq(n-1)$} 
+        }        
+    };
+\end{tikzpicture}
